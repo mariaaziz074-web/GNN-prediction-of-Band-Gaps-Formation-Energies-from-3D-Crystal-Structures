@@ -1,0 +1,4 @@
+sample_index,jid,formula,nat,split
+3062,JVASP-7577,Si,1,train
+6887,JVASP-7544,P,1,val
+7547,JVASP-7379,Cl,1,test
