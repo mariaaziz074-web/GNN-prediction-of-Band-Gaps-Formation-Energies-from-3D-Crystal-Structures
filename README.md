@@ -1,53 +1,49 @@
 # GNN Prediction of Band Gaps and Formation Energies from 3D Crystal Structures
 
-Graph neural network prediction of DFT materials properties directly from periodic 3D crystal structures.
+A reproducible materials-informatics workflow for predicting two density-functional-theory (DFT) properties directly from periodic crystal structures:
 
-## Dataset
+- formation energy per atom (`formation_energy_peratom`, eV/atom)
+- OptB88-vdW band gap (`optb88vdw_bandgap`, eV)
 
-This project uses the JARVIS-DFT `dft_3d` dataset.
+The project uses real structures and DFT labels from JARVIS-DFT and compares a compact multi-task crystal graph neural network (GNN) against a classical ExtraTrees structural baseline on exactly the same frozen test set.
 
-Primary targets:
+On the 800-material held-out test set, the CrystalGNN achieves:
 
-- Formation energy per atom (`formation_energy_peratom`)
-- OptB88-vdW band gap (`optb88vdw_bandgap`)
+- formation-energy MAE: **0.2231 eV/atom**
+- formation-energy R²: **0.9001**
+- band-gap MAE: **0.3963 eV**
+- band-gap R²: **0.6501**
 
-A deterministic subset of 8,000 materials is used:
+The GNN reduces test MAE relative to ExtraTrees by approximately **34.3% for formation energy** and **21.7% for band gap**.
 
-- Training: 6,400
-- Validation: 800
-- Test: 800
-- Random seed: 42
+---
 
-## Methods
+## Project overview
 
-The project compares:
+The workflow is:
 
-- Classical structural descriptors with ExtraTrees regression
-- Periodic crystal graph neural networks
-
-Crystal graphs use periodic-image neighbor enumeration and radial distance features.
-
-## Current Baseline Test Results
-
-Formation energy:
-
-- MAE: 0.3396 eV/atom
-- RMSE: 0.4904 eV/atom
-- R²: 0.7882
-
-Band gap:
-
-- MAE: 0.5058 eV
-- RMSE: 0.9169 eV
-- R²: 0.5377
-
-## Data Source
-
-JARVIS-DFT:
-
-- https://doi.org/10.1016/j.commatsci.2025.114063
-- https://doi.org/10.6084/m9.figshare.6815699
-
-## Status
-
-In development.
+```text
+JARVIS-DFT
+    |
+    v
+Deterministic 8,000-material subset
+    |
+    +-----------------------------+
+    |                             |
+    v                             v
+Classical structural         Periodic crystal
+descriptors                  graph construction
+    |                             |
+    v                             v
+ExtraTrees baseline          Multi-task CrystalGNN
+    |                             |
+    +-------------+---------------+
+                  |
+                  v
+         Frozen 800-material test set
+                  |
+                  v
+       Model comparison and analysis
+                  |
+                  v
+       Retrospective candidate screen
