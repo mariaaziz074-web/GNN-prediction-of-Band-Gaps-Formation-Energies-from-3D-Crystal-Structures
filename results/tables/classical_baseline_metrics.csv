@@ -1,0 +1,5 @@
+model,target,split,mae,rmse,r2
+ExtraTrees_structural_baseline,formation_energy_peratom,val,0.35414378314949047,0.5166854845962904,0.7701842384866163
+ExtraTrees_structural_baseline,formation_energy_peratom,test,0.3395817240888309,0.49042314823589256,0.7881764005850842
+ExtraTrees_structural_baseline,optb88vdw_bandgap,val,0.4815559284193121,0.8979271111884563,0.44582116375021286
+ExtraTrees_structural_baseline,optb88vdw_bandgap,test,0.5058479285098003,0.9169242568161968,0.5377167930358862

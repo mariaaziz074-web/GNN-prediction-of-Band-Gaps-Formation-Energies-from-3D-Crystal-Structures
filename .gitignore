@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+build/
+dist/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Large / generated data
+data/raw/
+data/processed/*.pt
+*.pt
+*.pth
+*.ckpt
+
+# Model artifacts
+models/
+checkpoints/
+
+# Temporary files
+*.tmp
+*.log
+~$*

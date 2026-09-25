@@ -1,0 +1,18 @@
+{
+  "dataset": "JARVIS-DFT dft_3d",
+  "source_population": 93902,
+  "subset_size": 8000,
+  "seed": 42,
+  "split": {
+    "train": 6400,
+    "validation": 800,
+    "test": 800
+  },
+  "targets": {
+    "formation_energy_peratom": "eV/atom",
+    "optb88vdw_bandgap": "eV"
+  },
+  "identifier": "jid",
+  "structure_field": "atoms",
+  "selection": "deterministic random subset using numpy default_rng(seed=42)"
+}
