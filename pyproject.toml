@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "gnn-materials"
 version = "0.1.0"
-description = "GNN prediction of formation energies and band gaps from 3D crystal structures"
+description = "GNN prediction of formation energies and band gaps from periodic 3D crystal structures"
 requires-python = ">=3.11"
 
 dependencies = [
@@ -17,5 +17,14 @@ dependencies = [
     "jarvis-tools",
 ]
 
+[project.optional-dependencies]
+test = [
+    "pytest>=8",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

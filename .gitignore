@@ -7,7 +7,7 @@ __pycache__/
 build/
 dist/
 
-# Virtual environment
+# Virtual environments
 .venv/
 venv/
 env/
@@ -25,18 +25,22 @@ Thumbs.db
 .coverage
 htmlcov/
 
-# Large / generated data
+# Raw and large generated scientific data
 data/raw/
 data/processed/*.pt
+
+# Large binary model/checkpoint artifacts
 *.pt
 *.pth
 *.ckpt
 
-# Model artifacts
-models/
-checkpoints/
+# Root-level model artifact directories only.
+# Do not ignore src/gnn_materials/models/, which contains source code.
+/models/
+/checkpoints/
+/results/models/
+/results/checkpoints/
 
 # Temporary files
 *.tmp
 *.log
-~$*
